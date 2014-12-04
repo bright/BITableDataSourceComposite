@@ -1,0 +1,37 @@
+.idea
+__MACOSX
+!.idea/codeStyleSettings.xml
+
+# injection plugin files
+iOSInjectionProject
+*.tmp
+BITableDataSourceComposite/InjectionSetup*
+
+# xcode noise
+BITableDataSourceComposite.xcodeproj/project.xcworkspace/xcuserdata/*
+BITableDataSourceComposite.xcodeproj/xcuserdata/
+BITableDataSourceComposite.xcworkspace/xcuserdata/
+build/*
+dist/*
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserdatad/
+
+# osx noise
+.LSOverride
+*.swp
+.DS_Stores
+.DS_Store
+*sqlite-shm
+*sqlite-wal
+
+# TestFlight files
+*.app.dSYM.zip
+*.ipa
+
+*.pch.save
+*.m.tmp
+.bundle%
+
