@@ -8,9 +8,10 @@
 
 
 #import <UIKit/UIKit.h>
+#import "BITableDataSourceComposite.h"
 
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <BITableDataSourceCompositeSectionsDataSource>
 
 
 @end

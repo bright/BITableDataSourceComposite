@@ -11,13 +11,15 @@
 		C589201D8AFE63CFB2FE4601 /* BITableDataSourceCompositeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C589246B560F4361A954B40C /* BITableDataSourceCompositeTests.m */; };
 		C5892089DC78D76AAA62832C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5892B1D7BC4F8ECC958F43D /* ViewController.m */; };
 		C58921D897C13E89E0F2F452 /* FakeTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C58923876BF178AB246EBE1B /* FakeTableDataSource.m */; };
+		C589229C8AAD40511F0C13EB /* SecondSampleTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C589245BB17A1086A3DD9739 /* SecondSampleTableViewDataSource.m */; };
 		C58923157CC6E55BE7C0E064 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5892A717BFA75409BB71ED1 /* main.m */; };
-		C589240A14ACB8C13B953611 /* BITableViewDataSourceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C58921A71E43A38C6E8A4E89 /* BITableViewDataSourceInfo.m */; };
 		C58925CEC6F8CEC7E34947B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5892EE84882FD35DCE388DD /* Images.xcassets */; };
 		C58926B4A7B87349098A5A4C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5892B122A68B041EB634C94 /* LaunchScreen.xib */; };
-		C58926D118D21A8DCEA506BF /* BITableDataSourceComposite.m in Sources */ = {isa = PBXBuildFile; fileRef = C589274975C4ACAA89115C81 /* BITableDataSourceComposite.m */; };
+		C58928612A01BC620FF11DAA /* BITableViewDataSourceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C58923749ED5438F3B1289BE /* BITableViewDataSourceInfo.m */; };
+		C58929141F935013EAC920F5 /* FirstSampleTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C5892B9E99AB18497A146078 /* FirstSampleTableViewDataSource.m */; };
 		C589295BA56788C1507925EC /* FakeBITableDataSourceCompositeSectionsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C589242E6974A71A7AAB2B4D /* FakeBITableDataSourceCompositeSectionsDataSource.m */; };
 		C5892C05A9315A6A3EE1C3A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C58927B889BF996C82886FEC /* Main.storyboard */; };
+		C5892CD3A49986BCEB58F2EC /* BITableDataSourceComposite.m in Sources */ = {isa = PBXBuildFile; fileRef = C589210A53142A05A951A9A2 /* BITableDataSourceComposite.m */; };
 		C5892D9E04B4CC86673D1544 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C589203C1F3699C45188D183 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -37,23 +39,27 @@
 		B21C5D03BEFBCAF7FBF8CBF9 /* Pods-BITableDataSourceCompositeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BITableDataSourceCompositeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BITableDataSourceCompositeTests/Pods-BITableDataSourceCompositeTests.release.xcconfig"; sourceTree = "<group>"; };
 		C589203C1F3699C45188D183 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C58920DEE43D2AE84986CEE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C58921A71E43A38C6E8A4E89 /* BITableViewDataSourceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BITableViewDataSourceInfo.m; sourceTree = "<group>"; };
+		C589210A53142A05A951A9A2 /* BITableDataSourceComposite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BITableDataSourceComposite.m; sourceTree = "<group>"; };
 		C58921F004C06C890B87F240 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C5892208701F078AEBBB4393 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		C58922E1D8F51F1427860E14 /* BITableDataSourceComposite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BITableDataSourceComposite.h; sourceTree = "<group>"; };
+		C58923749ED5438F3B1289BE /* BITableViewDataSourceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BITableViewDataSourceInfo.m; sourceTree = "<group>"; };
 		C58923876BF178AB246EBE1B /* FakeTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeTableDataSource.m; sourceTree = "<group>"; };
+		C58923C5A5072585C78893E9 /* SecondSampleTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondSampleTableViewDataSource.h; sourceTree = "<group>"; };
 		C5892422D3CE2E4CF5886EE5 /* BITableDataSourceCompositeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BITableDataSourceCompositeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C589242E6974A71A7AAB2B4D /* FakeBITableDataSourceCompositeSectionsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeBITableDataSourceCompositeSectionsDataSource.m; sourceTree = "<group>"; };
-		C589244AB3501B107A72216C /* BITableDataSourceComposite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BITableDataSourceComposite.h; sourceTree = "<group>"; };
+		C589245BB17A1086A3DD9739 /* SecondSampleTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSampleTableViewDataSource.m; sourceTree = "<group>"; };
 		C589246B560F4361A954B40C /* BITableDataSourceCompositeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BITableDataSourceCompositeTests.m; sourceTree = "<group>"; };
 		C58924BF763CBC2D73056A94 /* FakeTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeTableDataSource.h; sourceTree = "<group>"; };
 		C58925BF830E24841C9D4C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		C58925FB6895552F19AFC71D /* BITableViewDataSourceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BITableViewDataSourceInfo.h; sourceTree = "<group>"; };
 		C5892622115D3AF69924AA28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C589274975C4ACAA89115C81 /* BITableDataSourceComposite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BITableDataSourceComposite.m; sourceTree = "<group>"; };
+		C58927A203EC03FB857BC33C /* FirstSampleTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstSampleTableViewDataSource.h; sourceTree = "<group>"; };
 		C5892914F54B3977B1A5F79B /* BITableDataSourceComposite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BITableDataSourceComposite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C589292DD2BE8D245F40A851 /* FakeBITableDataSourceCompositeSectionsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeBITableDataSourceCompositeSectionsDataSource.h; sourceTree = "<group>"; };
-		C5892959839AD0BA5075B2D4 /* BITableViewDataSourceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BITableViewDataSourceInfo.h; sourceTree = "<group>"; };
 		C5892A717BFA75409BB71ED1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5892B1D7BC4F8ECC958F43D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C5892B9E99AB18497A146078 /* FirstSampleTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSampleTableViewDataSource.m; sourceTree = "<group>"; };
 		C5892EE84882FD35DCE388DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C5892F92BCCCF5D8EDC3B7AB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,10 +133,11 @@
 				C58927B889BF996C82886FEC /* Main.storyboard */,
 				C5892F92BCCCF5D8EDC3B7AB /* ViewController.h */,
 				C5892B1D7BC4F8ECC958F43D /* ViewController.m */,
-				C589274975C4ACAA89115C81 /* BITableDataSourceComposite.m */,
-				C589244AB3501B107A72216C /* BITableDataSourceComposite.h */,
-				C58921A71E43A38C6E8A4E89 /* BITableViewDataSourceInfo.m */,
-				C5892959839AD0BA5075B2D4 /* BITableViewDataSourceInfo.h */,
+				C5892B9E99AB18497A146078 /* FirstSampleTableViewDataSource.m */,
+				C58927A203EC03FB857BC33C /* FirstSampleTableViewDataSource.h */,
+				C589245BB17A1086A3DD9739 /* SecondSampleTableViewDataSource.m */,
+				C58923C5A5072585C78893E9 /* SecondSampleTableViewDataSource.h */,
+				C5892CB394199A5AF749A060 /* lib */,
 			);
 			path = BITableDataSourceComposite;
 			sourceTree = "<group>";
@@ -144,6 +151,17 @@
 				19E5EEA9FAB81C721E91DBF2 /* Pods */,
 				1F04A7410B48D4BCFC337A1D /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		C5892CB394199A5AF749A060 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				C589210A53142A05A951A9A2 /* BITableDataSourceComposite.m */,
+				C58922E1D8F51F1427860E14 /* BITableDataSourceComposite.h */,
+				C58923749ED5438F3B1289BE /* BITableViewDataSourceInfo.m */,
+				C58925FB6895552F19AFC71D /* BITableViewDataSourceInfo.h */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		C5892E80B643AED4F7AB4C11 /* Supporting Files */ = {
@@ -300,10 +318,12 @@
 				C58923157CC6E55BE7C0E064 /* main.m in Sources */,
 				C5892D9E04B4CC86673D1544 /* AppDelegate.m in Sources */,
 				C5892089DC78D76AAA62832C /* ViewController.m in Sources */,
-				C58926D118D21A8DCEA506BF /* BITableDataSourceComposite.m in Sources */,
 				C58921D897C13E89E0F2F452 /* FakeTableDataSource.m in Sources */,
 				C589295BA56788C1507925EC /* FakeBITableDataSourceCompositeSectionsDataSource.m in Sources */,
-				C589240A14ACB8C13B953611 /* BITableViewDataSourceInfo.m in Sources */,
+				C58929141F935013EAC920F5 /* FirstSampleTableViewDataSource.m in Sources */,
+				C589229C8AAD40511F0C13EB /* SecondSampleTableViewDataSource.m in Sources */,
+				C5892CD3A49986BCEB58F2EC /* BITableDataSourceComposite.m in Sources */,
+				C58928612A01BC620FF11DAA /* BITableViewDataSourceInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
