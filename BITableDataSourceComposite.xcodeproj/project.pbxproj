@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		39BDF8FD5FBA65D58312984C /* libPods-BITableDataSourceCompositeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28692708F943F1D26CE6B516 /* libPods-BITableDataSourceCompositeTests.a */; };
-		C589201D8AFE63CFB2FE4601 /* BITableDataSourceCompositeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C589246B560F4361A954B40C /* BITableDataSourceCompositeTests.m */; };
 		C5892089DC78D76AAA62832C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5892B1D7BC4F8ECC958F43D /* ViewController.m */; };
 		C58921D897C13E89E0F2F452 /* FakeTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C58923876BF178AB246EBE1B /* FakeTableDataSource.m */; };
 		C589229C8AAD40511F0C13EB /* SecondSampleTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C589245BB17A1086A3DD9739 /* SecondSampleTableViewDataSource.m */; };
@@ -21,6 +20,7 @@
 		C5892C05A9315A6A3EE1C3A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C58927B889BF996C82886FEC /* Main.storyboard */; };
 		C5892CD3A49986BCEB58F2EC /* BITableDataSourceComposite.m in Sources */ = {isa = PBXBuildFile; fileRef = C589210A53142A05A951A9A2 /* BITableDataSourceComposite.m */; };
 		C5892D9E04B4CC86673D1544 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C589203C1F3699C45188D183 /* AppDelegate.m */; };
+		C5892DBD533933445D4B2132 /* BITableDataSourceCompositeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C58924BA131C343FA3AFEC8D /* BITableDataSourceCompositeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		C5892422D3CE2E4CF5886EE5 /* BITableDataSourceCompositeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BITableDataSourceCompositeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C589242E6974A71A7AAB2B4D /* FakeBITableDataSourceCompositeSectionsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeBITableDataSourceCompositeSectionsDataSource.m; sourceTree = "<group>"; };
 		C589245BB17A1086A3DD9739 /* SecondSampleTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSampleTableViewDataSource.m; sourceTree = "<group>"; };
-		C589246B560F4361A954B40C /* BITableDataSourceCompositeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BITableDataSourceCompositeTests.m; sourceTree = "<group>"; };
+		C58924BA131C343FA3AFEC8D /* BITableDataSourceCompositeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BITableDataSourceCompositeTests.m; sourceTree = "<group>"; };
 		C58924BF763CBC2D73056A94 /* FakeTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeTableDataSource.h; sourceTree = "<group>"; };
 		C58925BF830E24841C9D4C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		C58925FB6895552F19AFC71D /* BITableViewDataSourceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BITableViewDataSourceInfo.h; sourceTree = "<group>"; };
@@ -104,11 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				C5892E80B643AED4F7AB4C11 /* Supporting Files */,
-				C589246B560F4361A954B40C /* BITableDataSourceCompositeTests.m */,
 				C58923876BF178AB246EBE1B /* FakeTableDataSource.m */,
 				C58924BF763CBC2D73056A94 /* FakeTableDataSource.h */,
 				C589242E6974A71A7AAB2B4D /* FakeBITableDataSourceCompositeSectionsDataSource.m */,
 				C589292DD2BE8D245F40A851 /* FakeBITableDataSourceCompositeSectionsDataSource.h */,
+				C5892EC272897D13FE50B2F9 /* lib */,
 			);
 			path = BITableDataSourceCompositeTests;
 			sourceTree = "<group>";
@@ -170,6 +170,14 @@
 				C5892208701F078AEBBB4393 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C5892EC272897D13FE50B2F9 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				C58924BA131C343FA3AFEC8D /* BITableDataSourceCompositeTests.m */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		C5892FFD5DFD7421842E7A15 /* Supporting Files */ = {
@@ -307,7 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C589201D8AFE63CFB2FE4601 /* BITableDataSourceCompositeTests.m in Sources */,
+				C5892DBD533933445D4B2132 /* BITableDataSourceCompositeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
