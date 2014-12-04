@@ -21,16 +21,18 @@
     NSMutableArray *tableSourcesInfo = [NSMutableArray new];
     int sectionIndex = 0;
     for (id <UITableViewDataSource> tableViewDataSource in _tableViewsDataSources) {
-        if([self withHeadersForDataSources]){
-            sectionIndex += 1;
-        }
         NSInteger numberOfSections = 1;
         if([tableViewDataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]){
             numberOfSections = [tableViewDataSource numberOfSectionsInTableView:tableView];
         }
-        BITableViewDataSourceInfo *info = [BITableViewDataSourceInfo infoWithStartSection:sectionIndex endSection:(sectionIndex + numberOfSections - 1) tableViewDataSource:tableViewDataSource];
-        sectionIndex += numberOfSections;
+        BITableViewDataSourceInfo *info = [BITableViewDataSourceInfo infoWithStartSection:sectionIndex endSection:(sectionIndex + numberOfSections) tableViewDataSource:tableViewDataSource];
+        [info setStartsWithDataSourceHeaderSection: [self withHeadersForDataSources]];
         [tableSourcesInfo addObject:info];
+
+        sectionIndex += numberOfSections;
+        if([self withHeadersForDataSources]){
+            sectionIndex += 1;
+        }
     }
     return tableSourcesInfo;
 }
@@ -61,10 +63,13 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     BITableViewDataSourceInfo *tableDataSourceInfo = [self dataSourceInfoForSection:section inTableView:tableView];
-    if(tableDataSourceInfo == nil) return nil;
+    if([tableDataSourceInfo getSectionNumberForDataSourceHeader] == section) {
+        return nil;
+    }
     id <UITableViewDataSource> tableDataSource = tableDataSourceInfo.tableViewDataSource;
     if([tableDataSource respondsToSelector:@selector(tableView:titleForHeaderInSection:)]){
-        return [tableDataSource tableView: tableView titleForHeaderInSection: (section - tableDataSourceInfo.startSection)];
+        NSInteger mappedSection = section - [tableDataSourceInfo getFirstSectionForCell];
+        return [tableDataSource tableView: tableView titleForHeaderInSection: mappedSection];
     } else {
         return nil;
     }
@@ -72,19 +77,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     BITableViewDataSourceInfo *tableDataSourceInfo = [self dataSourceInfoForSection:section inTableView:tableView];
-    if(tableDataSourceInfo == nil) return 1;
+    BOOL isDataSourceHeaderSection = [tableDataSourceInfo getSectionNumberForDataSourceHeader] == section;
+    if(isDataSourceHeaderSection) return 1;
     return [tableDataSourceInfo.tableViewDataSource tableView:tableView numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BITableViewDataSourceInfo *tableDataSourceInfo = [self dataSourceInfoForSection:indexPath.section inTableView:tableView];
-    BOOL isDataSourceHeader = tableDataSourceInfo == nil;
-    if(isDataSourceHeader) {
-        tableDataSourceInfo = [self dataSourceInfoForSection:indexPath.section + 1 inTableView:tableView];
-    }
+    BOOL isDataSourceHeaderSection = [tableDataSourceInfo getSectionNumberForDataSourceHeader] == indexPath.section;
     id <UITableViewDataSource> tableDataSource = tableDataSourceInfo.tableViewDataSource;
 
-    if (isDataSourceHeader) {
+    if (isDataSourceHeaderSection) {
         if([_dataSource respondsToSelector:@selector(dataSourceHeaderViewForTable:tableDataSource:)]){
             return [_dataSource dataSourceHeaderViewForTable:tableView tableDataSource:tableDataSource];
         } else {
@@ -97,7 +100,9 @@
 }
 
 - (NSIndexPath *)mapIndexPath:(NSIndexPath *)indexPath toTableDataSourceInfoIndexPath:(BITableViewDataSourceInfo *)tableDataSourceInfo {
-    return [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section - tableDataSourceInfo.startSection];
+    NSInteger section = indexPath.section - [tableDataSourceInfo getFirstSectionForCell];
+    NSIndexPath *path = [NSIndexPath indexPathForRow:indexPath.row inSection:section];
+    return path;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

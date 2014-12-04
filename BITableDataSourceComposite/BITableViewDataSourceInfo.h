@@ -9,6 +9,11 @@
 
 - (instancetype)initWithStartSection:(NSInteger)startSection endSection:(NSInteger)endSection tableViewDataSource:(id <UITableViewDataSource>)tableViewDataSource;
 
+- (void)setStartsWithDataSourceHeaderSection:(BOOL)startsWithDataSourceHeaderSection;
+
 + (instancetype)infoWithStartSection:(NSInteger)startSection endSection:(NSInteger)endSection tableViewDataSource:(id <UITableViewDataSource>)tableViewDataSource;
 
+- (NSInteger)getSectionNumberForDataSourceHeader;
+
+- (NSInteger)getFirstSectionForCell;
 @end
