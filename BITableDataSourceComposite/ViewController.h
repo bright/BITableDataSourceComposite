@@ -11,7 +11,7 @@
 #import "BITableDataSourceComposite.h"
 
 
-@interface ViewController : UIViewController <BITableDataSourceCompositeSectionsDataSource>
+@interface ViewController : UIViewController <BITableDataSourceCompositeSectionsDataSource, UITableViewDelegate>
 
 
 @end

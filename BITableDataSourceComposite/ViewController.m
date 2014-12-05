@@ -20,29 +20,27 @@
 @implementation ViewController {
     NSArray *_dataSources;
     BITableDataSourceComposite *_compositeDataSource;
+    UITableView *_tableView;
 }
 
 - (void)loadView {
     [super loadView];
     _dataSources = @[[FirstSampleTableViewDataSource new], [SecondSampleTableViewDataSource new]];
 
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.view addSubview: tableView];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    _tableView.delegate = self;
+    [self.view addSubview:_tableView];
     _compositeDataSource = [[BITableDataSourceComposite alloc] initWithDataSource:self];
-    tableView.dataSource = _compositeDataSource;
+    _tableView.dataSource = _compositeDataSource;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BITableDataSourceComposite * composite = _tableView.dataSource;
+    id dataSource = [composite tableView: _tableView innerDataSourceForIndexPath:indexPath];
+    NSIndexPath* dataSourceIndexPath = [composite tableView: _tableView innerIndexPathForIndexPath:indexPath];
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSUInteger dataSourceIndex = [_dataSources indexOfObject: dataSource];
+    NSLog(@"Data source: %@, section: %@, row: %@", @(dataSourceIndex), @(dataSourceIndexPath.section), @(dataSourceIndexPath.row));
 }
 
 - (NSArray *)allDataSourcesForTableDataSourceComposite:(BITableDataSourceComposite *)tableDataSourceComposite {
@@ -62,6 +60,7 @@
     }
     cell.textLabel.text = [NSString stringWithFormat:@"header for source: %@", @([_dataSources indexOfObject: source])];
     cell.backgroundColor = [UIColor redColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
