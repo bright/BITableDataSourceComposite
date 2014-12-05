@@ -37,10 +37,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BITableDataSourceComposite * composite = _tableView.dataSource;
     id dataSource = [composite tableView: _tableView innerDataSourceForIndexPath:indexPath];
-    NSIndexPath* dataSourceIndexPath = [composite tableView: _tableView innerIndexPathForIndexPath:indexPath];
+    if(dataSource != nil){
+        NSIndexPath* dataSourceIndexPath = [composite tableView: _tableView innerIndexPathForIndexPath:indexPath];
 
-    NSUInteger dataSourceIndex = [_dataSources indexOfObject: dataSource];
-    NSLog(@"Data source: %@, section: %@, row: %@", @(dataSourceIndex), @(dataSourceIndexPath.section), @(dataSourceIndexPath.row));
+        NSUInteger dataSourceIndex = [_dataSources indexOfObject: dataSource];
+        NSLog(@"Data source: %@, section: %@, row: %@", @(dataSourceIndex), @(dataSourceIndexPath.section), @(dataSourceIndexPath.row));
+    }
 }
 
 - (NSArray *)allDataSourcesForTableDataSourceComposite:(BITableDataSourceComposite *)tableDataSourceComposite {

@@ -311,6 +311,52 @@ SpecBegin(BITableDataSourceComposite)
                         [NSIndexPath indexPathForRow:2 inSection:0]
                 );
             });
+
+            it(@"tableView:innerIndexPathForIndexPath: S:0 R:0 is nil", ^{
+                NSIndexPath *indexPath = [sut tableView:tableView innerIndexPathForIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                expect(indexPath).to.beNil();
+            });
+
+            it(@"tableView:innerIndexPathForIndexPath: S:1 R:0 is S:0 R:0", ^{
+                NSIndexPath *indexPath = [sut tableView:tableView innerIndexPathForIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+                expect(indexPath.section).to.equal(0);
+                expect(indexPath.row).to.equal(0);
+            });
+
+            it(@"tableView:innerIndexPathForIndexPath: S:1 R:1 is S:0 R:1", ^{
+                NSIndexPath *indexPath = [sut tableView:tableView innerIndexPathForIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+                expect(indexPath.section).to.equal(0);
+                expect(indexPath.row).to.equal(1);
+            });
+
+            it(@"tableView:innerIndexPathForIndexPath: S:2 R:0 is S:1 R:0", ^{
+                NSIndexPath *indexPath = [sut tableView:tableView innerIndexPathForIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+                expect(indexPath.section).to.equal(1);
+                expect(indexPath.row).to.equal(0);
+            });
+
+            it(@"tableView:innerIndexPathForIndexPath: S:2 R:1 is S:1 R:1", ^{
+                NSIndexPath *indexPath = [sut tableView:tableView innerIndexPathForIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]];
+                expect(indexPath.section).to.equal(1);
+                expect(indexPath.row).to.equal(1);
+            });
+
+            it(@"tableView:innerIndexPathForIndexPath: S:3 R:0 is nil", ^{
+                NSIndexPath *indexPath = [sut tableView:tableView innerIndexPathForIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+                expect(indexPath).to.beNil();
+            });
+
+            it(@"tableView:innerIndexPathForIndexPath: S:4 R:0 is S:0 R:0", ^{
+                NSIndexPath *indexPath = [sut tableView:tableView innerIndexPathForIndexPath:[NSIndexPath indexPathForRow:0 inSection:4]];
+                expect(indexPath.section).to.equal(0);
+                expect(indexPath.row).to.equal(0);
+            });
+
+            it(@"tableView:innerIndexPathForIndexPath: S:4 R:1 is S:0 R:1", ^{
+                NSIndexPath *indexPath = [sut tableView:tableView innerIndexPathForIndexPath:[NSIndexPath indexPathForRow:1 inSection:4]];
+                expect(indexPath.section).to.equal(0);
+                expect(indexPath.row).to.equal(1);
+            });
         });
 
 SpecEnd

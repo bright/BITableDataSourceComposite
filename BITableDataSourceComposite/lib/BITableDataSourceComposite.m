@@ -115,12 +115,22 @@
 
 - (id)tableView:(UITableView *)tableView innerDataSourceForIndexPath:(NSIndexPath *) indexPath{
     BITableViewDataSourceInfo *tableDataSourceInfo = [self dataSourceInfoForSection:indexPath.section inTableView:tableView];
-    return tableDataSourceInfo.tableViewDataSource;
+    BOOL isSectionForDataSourceHeader = indexPath.section < [tableDataSourceInfo getFirstSectionForCell];
+    if(isSectionForDataSourceHeader) {
+        return nil;
+    } else {
+        return tableDataSourceInfo.tableViewDataSource;
+    }
 }
 
 - (NSIndexPath *) tableView:(UITableView *)tableView innerIndexPathForIndexPath:(NSIndexPath *) indexPath {
     BITableViewDataSourceInfo *tableDataSourceInfo = [self dataSourceInfoForSection:indexPath.section inTableView:tableView];
-    return [self mapIndexPath:indexPath toTableDataSourceInfoIndexPath:tableDataSourceInfo];
+    BOOL isSectionForDataSourceHeader = indexPath.section < [tableDataSourceInfo getFirstSectionForCell];
+    if(isSectionForDataSourceHeader) {
+        return nil;
+    } else {
+        return [self mapIndexPath:indexPath toTableDataSourceInfoIndexPath:tableDataSourceInfo];
+    }
 }
 
 @end
