@@ -113,7 +113,7 @@
     return [_dataSource showHeadersForDataSourcesInTableDataSourceComposite: self];
 }
 
-- (id)tableView:(UITableView *)tableView innerDataSourceForIndexPath:(NSIndexPath *) indexPath{
+- (id<UITableViewDataSource>)tableView:(UITableView *)tableView innerDataSourceForIndexPath:(NSIndexPath *) indexPath{
     BITableViewDataSourceInfo *tableDataSourceInfo = [self dataSourceInfoForSection:indexPath.section inTableView:tableView];
     BOOL isSectionForDataSourceHeader = indexPath.section < [tableDataSourceInfo getFirstSectionForCell];
     if(isSectionForDataSourceHeader) {

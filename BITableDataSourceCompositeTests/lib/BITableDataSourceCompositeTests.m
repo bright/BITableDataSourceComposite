@@ -357,6 +357,48 @@ SpecBegin(BITableDataSourceComposite)
                 expect(indexPath.section).to.equal(0);
                 expect(indexPath.row).to.equal(1);
             });
+
+            //
+            it(@"tableView:innerDataSourceForIndexPath: S:0 R:0 is nil", ^{
+                id<UITableViewDataSource> dataSource = [sut tableView:tableView innerDataSourceForIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                expect(dataSource).to.beNil();
+            });
+
+            it(@"tableView:innerDataSourceForIndexPath: S:1 R:0 is DS:0", ^{
+                id<UITableViewDataSource> dataSource = [sut tableView:tableView innerDataSourceForIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+                expect(dataSource).to.beIdenticalTo(firstDataSource);
+            });
+
+            it(@"tableView:innerDataSourceForIndexPath: S:1 R:1 is S:0 R:1", ^{
+                id<UITableViewDataSource> dataSource = [sut tableView:tableView innerDataSourceForIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+                expect(dataSource).to.beIdenticalTo(firstDataSource);
+            });
+
+            it(@"tableView:innerDataSourceForIndexPath: S:2 R:0 is S:1 R:0", ^{
+                id<UITableViewDataSource> dataSource = [sut tableView:tableView innerDataSourceForIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+                expect(dataSource).to.beIdenticalTo(firstDataSource);
+            });
+
+            it(@"tableView:innerDataSourceForIndexPath: S:2 R:1 is S:1 R:1", ^{
+                id<UITableViewDataSource> dataSource = [sut tableView:tableView innerDataSourceForIndexPath:[NSIndexPath indexPathForRow:1 inSection:2]];
+                expect(dataSource).to.beIdenticalTo(firstDataSource);
+            });
+
+            it(@"tableView:innerIndexPathForIndexPath: S:3 R:0 is nil", ^{
+                id<UITableViewDataSource> dataSource = [sut tableView:tableView innerDataSourceForIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+                expect(dataSource).to.beNil();
+            });
+
+            it(@"tableView:innerDataSourceForIndexPath: S:4 R:0 is S:0 R:0", ^{
+                id<UITableViewDataSource> dataSource = [sut tableView:tableView innerDataSourceForIndexPath:[NSIndexPath indexPathForRow:0 inSection:4]];
+                expect(dataSource).to.beIdenticalTo(secondDataSource);
+            });
+
+            it(@"tableView:innerDataSourceForIndexPath: S:4 R:1 is S:0 R:1", ^{
+                id<UITableViewDataSource> dataSource = [sut tableView:tableView innerDataSourceForIndexPath:[NSIndexPath indexPathForRow:1 inSection:4]];
+                expect(dataSource).to.beIdenticalTo(secondDataSource);
+            });
+
         });
 
 SpecEnd
