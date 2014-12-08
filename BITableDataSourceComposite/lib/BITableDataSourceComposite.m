@@ -79,7 +79,8 @@
     BITableViewDataSourceInfo *tableDataSourceInfo = [self dataSourceInfoForSection:section inTableView:tableView];
     BOOL isDataSourceHeaderSection = [tableDataSourceInfo getSectionNumberForDataSourceHeader] == section;
     if(isDataSourceHeaderSection) return 1;
-    return [tableDataSourceInfo.tableViewDataSource tableView:tableView numberOfRowsInSection:section];
+    NSInteger innerSection = section - [tableDataSourceInfo getFirstSectionForCell];
+    return [tableDataSourceInfo.tableViewDataSource tableView:tableView numberOfRowsInSection:innerSection];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
