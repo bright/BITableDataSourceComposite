@@ -16,8 +16,10 @@
     return [NSString stringWithFormat:@"first sample header section:%@", @(section)];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSAssert(indexPath.row <  10, @"number of rows is max 10");
+    NSAssert(indexPath.section <  3, @"number of sections is max 3");
+
     static NSString* cellId = @"firstSampleCellId";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if(cell == nil){

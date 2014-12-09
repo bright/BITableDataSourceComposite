@@ -15,8 +15,9 @@
     return [NSString stringWithFormat:@"second sample header section:%@", @(section)];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSAssert(indexPath.row <  5, @"number of rows is max 5");
+    NSAssert(indexPath.section <  8, @"number of sections is max 8");
     static NSString* cellId = @"secondSampleCellId";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if(cell == nil){

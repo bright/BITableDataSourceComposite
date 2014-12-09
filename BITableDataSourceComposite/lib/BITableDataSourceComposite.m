@@ -25,7 +25,13 @@
         if([tableViewDataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]){
             numberOfSections = [tableViewDataSource numberOfSectionsInTableView:tableView];
         }
-        BITableViewDataSourceInfo *info = [BITableViewDataSourceInfo infoWithStartSection:sectionIndex endSection:(sectionIndex + numberOfSections) tableViewDataSource:tableViewDataSource];
+        int endSection = sectionIndex + numberOfSections;
+        if(![self withHeadersForDataSources]){
+            endSection -= 1;
+        }
+        BITableViewDataSourceInfo *info = [BITableViewDataSourceInfo infoWithStartSection:sectionIndex
+                                                                               endSection:endSection
+                                                                      tableViewDataSource:tableViewDataSource];
         [info setStartsWithDataSourceHeaderSection: [self withHeadersForDataSources]];
         [tableSourcesInfo addObject:info];
 
