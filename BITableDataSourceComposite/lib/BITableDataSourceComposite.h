@@ -8,6 +8,9 @@
 @property (weak) id<BITableDataSourceCompositeSectionsDataSource> dataSource;
 
 - (instancetype)initWithDataSource:(id <BITableDataSourceCompositeSectionsDataSource>)dataSource;
+
+- (BOOL)tableView:(UITableView *)tableView isSectionForHeader:(NSInteger)section;
+
 - (id<UITableViewDataSource>)tableView:(UITableView *)tableView innerDataSourceForIndexPath:(NSIndexPath *)indexPath;
 - (NSIndexPath *)tableView:(UITableView *)tableView innerIndexPathForIndexPath:(NSIndexPath *)indexPath;
 

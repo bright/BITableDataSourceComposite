@@ -67,6 +67,12 @@
     return nil;
 }
 
+-(BOOL)tableView:(UITableView *)tableView isSectionForHeader:(NSInteger) section {
+    BITableViewDataSourceInfo *tableDataSourceInfo = [self dataSourceInfoForSection:section inTableView:tableView];
+    BOOL isSectionForHeader = [tableDataSourceInfo getSectionNumberForDataSourceHeader] == section;
+    return isSectionForHeader;
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     BITableViewDataSourceInfo *tableDataSourceInfo = [self dataSourceInfoForSection:section inTableView:tableView];
     if([tableDataSourceInfo getSectionNumberForDataSourceHeader] == section) {
