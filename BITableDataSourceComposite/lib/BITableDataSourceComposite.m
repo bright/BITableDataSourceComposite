@@ -6,6 +6,8 @@
 
 @implementation BITableDataSourceComposite {
     NSArray *_tableViewsDataSources;
+    __weak UITableView *_tableDataSourceInfoTable;
+    NSArray *_tableDataSourceInfo;
 }
 
 - (instancetype)initWithDataSource:(id <BITableDataSourceCompositeSectionsDataSource>) dataSource {
@@ -58,8 +60,15 @@
 }
 
 - (BITableViewDataSourceInfo *)dataSourceInfoForSection:(NSInteger)section inTableView:(UITableView *) tableView {
-    NSArray *infos = [self createTableDataSourceInfoForTable: tableView];
-    for(BITableViewDataSourceInfo *info in infos){
+    @synchronized (self) {
+        BOOL tableDataSourceInfoForThatTableAlreadyGenerated = tableView != nil && _tableDataSourceInfoTable == tableView && _tableDataSourceInfo != nil;
+        if(!tableDataSourceInfoForThatTableAlreadyGenerated){
+            _tableDataSourceInfo = [self createTableDataSourceInfoForTable: tableView];
+            _tableDataSourceInfoTable = tableView;
+        }
+    }
+
+    for(BITableViewDataSourceInfo *info in _tableDataSourceInfo){
         if(section >= info.startSection && section <= info.endSection){
             return info;
         }
